@@ -80,6 +80,11 @@
                             href="/admin/backups/listar"
                             {{ 'aria-current=page' if '/admin/backups/' in request.path else '' }}>Backup</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ 'active' if '/admin/categorias/' in request.path else '' }}"
+                            href="/admin/categorias/listar"
+                            {{ 'aria-current=page' if '/admin/categorias/' in request.path else '' }}>Categorias</a>
+                    </li>
                     {% else %}
                     <li class="nav-item">
                         <a class="nav-link {{ 'active' if '/chamados/' in request.path else '' }}"
