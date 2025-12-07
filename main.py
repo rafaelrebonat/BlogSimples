@@ -29,6 +29,7 @@ from repo import (
     chamado_repo,
     chamado_interacao_repo,
     indices_repo,
+    categoria_repo,
 )
 from repo import chat_sala_repo, chat_participante_repo, chat_mensagem_repo
 
@@ -39,6 +40,7 @@ from routes.admin_usuarios_routes import router as admin_usuarios_router
 from routes.admin_configuracoes_routes import router as admin_config_router
 from routes.admin_backups_routes import router as admin_backups_router
 from routes.admin_chamados_routes import router as admin_chamados_router
+from routes.admin_categorias_routes import router as admin_categorias_router
 from routes.usuario_routes import router as usuario_router
 from routes.chat_routes import router as chat_router
 from routes.public_routes import router as public_router
@@ -77,6 +79,7 @@ if static_path.exists():
 TABELAS = [
     (usuario_repo, "usuario"),
     (configuracao_repo, "configuracao"),
+    (categoria_repo, "categoria"),
     (chamado_repo, "chamado"),
     (chamado_interacao_repo, "chamado_interacao"),
     (chat_sala_repo, "chat_sala"),
@@ -121,6 +124,7 @@ ROUTERS = [
     (admin_config_router, ["Admin - Configurações"], "admin de configurações"),
     (admin_backups_router, ["Admin - Backups"], "admin de backups"),
     (admin_chamados_router, ["Admin - Chamados"], "admin de chamados"),
+    (admin_categorias_router, ["Admin - Categorias"], "admin de categorias"),
     (usuario_router, ["Usuário"], "usuário"),
     (chat_router, ["Chat"], "chat"),
     (public_router, ["Público"], "público"),
