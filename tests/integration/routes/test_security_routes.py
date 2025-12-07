@@ -22,7 +22,7 @@ class TestXSSProtection:
         malicious_name = '<script>alert("XSS")</script>Usuario'
 
         response = client.post("/cadastrar", data={
-            "perfil": Perfil.CLIENTE.value,
+            "perfil": Perfil.AUTOR.value,
             "nome": malicious_name,
             "email": "xss@example.com",
             "senha": "Senha@123",
@@ -89,7 +89,7 @@ class TestSQLInjection:
         email_com_aspas = "test'user@example.com"
 
         response = client.post("/cadastrar", data={
-            "perfil": Perfil.CLIENTE.value,
+            "perfil": Perfil.AUTOR.value,
             "nome": "Usuario Teste",
             "email": email_com_aspas,
             "senha": "Senha@123",
@@ -191,7 +191,7 @@ class TestRateLimiting:
         # Tentar cadastrar 4 usuários (limite é 3)
         for i in range(4):
             response = client.post("/cadastrar", data={
-                "perfil": Perfil.CLIENTE.value,
+                "perfil": Perfil.AUTOR.value,
                 "nome": f"Usuario {i}",
                 "email": f"usuario{i}@example.com",
                 "senha": "Senha@123",
@@ -237,7 +237,7 @@ class TestValidacaoInputs:
         email_longo = "a" * 250 + "@example.com"
 
         response = client.post("/cadastrar", data={
-            "perfil": Perfil.CLIENTE.value,
+            "perfil": Perfil.AUTOR.value,
             "nome": "Usuario Teste",
             "email": email_longo,
             "senha": "Senha@123",
@@ -253,7 +253,7 @@ class TestValidacaoInputs:
         senha_unicode = "Sẽnha@123éú"
 
         response = client.post("/cadastrar", data={
-            "perfil": Perfil.CLIENTE.value,
+            "perfil": Perfil.AUTOR.value,
             "nome": "Usuario Teste",
             "email": "unicode@example.com",
             "senha": senha_unicode,
@@ -268,7 +268,7 @@ class TestValidacaoInputs:
         nome_com_null = "Usuario\x00Admin"
 
         response = client.post("/cadastrar", data={
-            "perfil": Perfil.CLIENTE.value,
+            "perfil": Perfil.AUTOR.value,
             "nome": nome_com_null,
             "email": "nullbyte@example.com",
             "senha": "Senha@123",
@@ -438,7 +438,7 @@ class TestPasswordSecurity:
 
         for senha_fraca in senhas_fracas:
             response = client.post("/cadastrar", data={
-                "perfil": Perfil.CLIENTE.value,
+                "perfil": Perfil.AUTOR.value,
                 "nome": "Usuario Teste",
                 "email": f"teste_{senha_fraca}@example.com",
                 "senha": senha_fraca,
