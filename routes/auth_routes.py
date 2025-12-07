@@ -229,7 +229,6 @@ async def get_cadastrar(request: Request):
 @router.post("/cadastrar")
 async def post_cadastrar(
     request: Request,
-    perfil: str = Form(),
     nome: str = Form(),
     email: str = Form(),
     senha: str = Form(),
@@ -248,11 +247,11 @@ async def post_cadastrar(
             return RedirectResponse("/cadastrar", status_code=status.HTTP_303_SEE_OTHER)
 
         # Armazena os dados do formulário para reexibição em caso de erro
-        dados_formulario = {"perfil": perfil, "nome": nome, "email": email}
+        dados_formulario = {"nome": nome, "email": email}
 
-        # Validar dados com DTO
+        # Validar dados com DTO (perfil fixo como Leitor)
         dto = CadastroDTO(
-            perfil=perfil,
+            perfil="Leitor",
             nome=nome,
             email=email,
             senha=senha,
@@ -267,13 +266,13 @@ async def post_cadastrar(
                 "auth/cadastro.html", {"request": request, "dados": dados_formulario}
             )
 
-        # Criar usuário com perfil escolhido
+        # Criar usuário com perfil Leitor (padrão para cadastro público)
         usuario = Usuario(
             id=0,
             nome=dto.nome,
             email=dto.email,
             senha=criar_hash_senha(dto.senha),
-            perfil=dto.perfil,
+            perfil="Leitor",
         )
 
         # Inserir no banco

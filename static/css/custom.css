@@ -1,6 +1,7 @@
 /* Variáveis de cores */
 :root {
-    --primary-color: #0d6efd;
+    --primary-color: #8b1b1b; /* vermelho escuro principal */
+    --primary-color-rgb: 139, 27, 27;
     --secondary-color: #6c757d;
     --success-color: #198754;
     --danger-color: #dc3545;
@@ -8,6 +9,47 @@
     --info-color: #0dcaf0;
     --light-color: #f8f9fa;
     --dark-color: #212529;
+    /* Ajusta variáveis Bootstrap principais */
+    --bs-primary: var(--primary-color);
+    --bs-primary-rgb: var(--primary-color-rgb);
+    --bs-link-color: var(--primary-color);
+    --bs-link-hover-color: #701515;
+
+    /* Botões primários Bootstrap 5 */
+    --bs-btn-bg: var(--primary-color);
+    --bs-btn-border-color: var(--primary-color);
+    --bs-btn-hover-bg: #701515;
+    --bs-btn-hover-border-color: #701515;
+    --bs-btn-active-bg: #5b1010;
+    --bs-btn-active-border-color: #5b1010;
+    --bs-btn-disabled-bg: var(--primary-color);
+    --bs-btn-disabled-border-color: var(--primary-color);
+}
+
+/* Overrides principais para a cor primária */
+.btn-primary,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary:visited {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #701515;
+    border-color: #701515;
+}
+
+.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.border-primary {
+    border-color: var(--primary-color) !important;
 }
 
 /* ===== UTILITY CLASSES ===== */

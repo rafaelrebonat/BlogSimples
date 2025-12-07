@@ -21,12 +21,6 @@
                             </div>
 
                             <div class="col-12 mb-3">
-                                {{ field(name='perfil', type='radio', radio_style='buttons', required=true,
-                                options={'Cliente': 'Cliente', 'Vendedor': 'Vendedor'},
-                                radio_icons={'Cliente': 'bi-cart3', 'Vendedor': 'bi-shop'}) }}
-                            </div>
-
-                            <div class="col-12 mb-3">
                                 {{ field(name='nome', label='Nome Completo', type='text', required=true,
                                 attributes={'minlength': 3, 'maxlength': 100}) }}
                             </div>

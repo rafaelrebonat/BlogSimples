@@ -73,8 +73,8 @@
                 <h3 class="mt-5 mb-3">Radio Buttons (Button Group com Ícones)</h3>
                 {{ field(name='perfil_usuario', label='Escolha seu perfil', type='radio', radio_style='buttons',
                 required=true,
-                options={'Cliente': 'Comprador', 'Vendedor': 'Vendedor'},
-                radio_icons={'Cliente': 'bi-cart3', 'Vendedor': 'bi-shop'},
+                options={'Administrador': 'Administrador', 'Autor': 'Autor', 'Leitor': 'Leitor'},
+                radio_icons={'Administrador': 'bi-shield-lock', 'Autor': 'bi-pencil-square', 'Leitor': 'bi-book'},
                 help_text='Selecione o tipo de conta que deseja criar') }}
 
                 <!-- MÁSCARAS DE DIGITAÇÃO -->
@@ -297,8 +297,8 @@
 
 {# Radio com ícones #}
 {{ field(name='perfil', label='Perfil', type='radio', radio_style='buttons',
-         options={'Cliente': 'Comprador', 'Vendedor': 'Vendedor'},
-         radio_icons={'Cliente': 'bi-cart3', 'Vendedor': 'bi-shop'}) }}
+         options={'Administrador': 'Administrador', 'Autor': 'Autor', 'Leitor': 'Leitor'},
+         radio_icons={'Administrador': 'bi-shield-lock', 'Autor': 'bi-pencil-square', 'Leitor': 'bi-book'}) }}
 
 {# Máscaras de digitação #}
 {{ field(name='cpf', label='CPF', mask='000.000.000-00') }}

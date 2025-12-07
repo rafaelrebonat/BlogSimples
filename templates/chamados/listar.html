@@ -8,8 +8,8 @@
 <div class="row">
     <div class="col-md-12">
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2><i class="bi bi-headset"></i> Meus Chamados</h2>
-            <a href="/chamados/cadastrar" class="btn btn-success">
+            <h2><i class="bi bi-headset text-dark"></i> Meus Chamados</h2>
+            <a href="/chamados/cadastrar" class="btn btn-dark">
                 <i class="bi bi-plus-circle"></i> Abrir Chamado
             </a>
         </div>
@@ -41,12 +41,12 @@
                                 </small>
                             </div>
                             <div class="d-flex gap-2 ms-3">
-                                <a href="/chamados/{{ chamado.id }}/visualizar" class="btn btn-sm btn-primary"
+                                <a href="/chamados/{{ chamado.id }}/visualizar" class="btn btn-sm btn-dark"
                                     title="Ver detalhes">
                                     <i class="bi bi-eye"></i> Detalhes
                                 </a>
                                 {% if chamado.status.value == 'Aberto' and not chamado.tem_resposta_admin %}
-                                <button type="button" class="btn btn-sm btn-danger" title="Excluir chamado"
+                                <button type="button" class="btn btn-sm btn-dark" title="Excluir chamado"
                                     onclick="excluirChamado({{ chamado.id }}, '{{ chamado.titulo|replace("'", "\\'") }}')">
                                     <i class="bi bi-trash"></i>
                                 </button>
