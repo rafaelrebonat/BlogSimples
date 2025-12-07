@@ -43,6 +43,10 @@
                             href="/">Início</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link {{ 'active' if '/artigos' in request.path and '/meus' not in request.path else '' }}"
+                            href="/artigos"><i class="bi bi-newspaper"></i> Artigos</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link {{ 'active' if request.path == '/sobre' else '' }}"
                             href="/sobre">Sobre</a>
                     </li>

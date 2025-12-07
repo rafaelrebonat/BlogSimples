@@ -22,8 +22,16 @@ def carregar_usuarios_seed():
     """
     # Verificar se já existem usuários cadastrados
     quantidade_usuarios = usuario_repo.obter_quantidade()
+    logger.info(f"DEBUG: Quantidade de usuários encontrada: {quantidade_usuarios}")
     if quantidade_usuarios > 0:
         logger.info(f"Já existem {quantidade_usuarios} usuários cadastrados. Seed não será executado.")
+        # DEBUG: Listar usuários existentes
+        try:
+            usuarios = usuario_repo.obter_todos()
+            for u in usuarios:
+                logger.info(f"  - {u.email} ({u.perfil})")
+        except Exception as e:
+            logger.warning(f"Erro ao listar usuários: {e}")
         return
 
     usuarios_criados = 0
